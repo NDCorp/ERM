@@ -66,10 +66,9 @@ namespace ERM
         private void EditForm_Closed(object sender, EventArgs e)
         {
             //Refresh Dataview from DB
-            vmEmp.ReadData((short)VMEmployee.RequestType.SELECT_ALL);
+            Refresh();
             LsvEmployees.SelectedIndex = (itemIndex > NO_INDEX_SELECTED) ? itemIndex : NO_INDEX_SELECTED;
-            //Refresh ListView and destroy object
-            LsvEmployees.Items.Refresh();
+            //Destroy object
             editForm = null;
         }
         #endregion
@@ -77,7 +76,12 @@ namespace ERM
         #region Refresh GridView
         private void BtnRefresh_Click(object sender, RoutedEventArgs e)
         {
+            Refresh();
+        }
+        private void Refresh()
+        {
             error = vmEmp.ReadData((short)VMEmployee.RequestType.SELECT_ALL);
+            LsvEmployees.Items.Refresh();
             ChangeMessageColor(error);
         }
         #endregion 
