@@ -16,7 +16,7 @@ namespace ERM
         private SqlConnection conn;
         private SqlCommand cmd;
         private List<string> requests;
-        private const string CONNECTION_STRING = "Server=.\\SQLEXPRESS; Database=Personnel; Trusted_Connection=Yes;"; //"Data Source=Personnel; User ID=Joseph; Password=";
+        private const string CONNECTION_STRING = "Server=.\\SQLEXPRESS; Database=Personnel; Trusted_Connection=Yes;"; 
         private string message;
         private List<EmpRecord> emp;
         private int empID;
